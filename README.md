@@ -23,3 +23,14 @@ docker run -p 8888:5000 --name myTP1 --network app-network -v \docker-entrypoint
 
 creatge adminer container : 
 docker run -p 8080:8080 --name adminer --network app-network adminer
+
+1-4 Why do we need a multistage build? And explain each step of this dockerfile.
+We need a multistage because we.
+
+1-5 Why do we need a reverse proxy?
+
+1-6 Why is docker-compose so important?
+
+1-7 Document docker-compose most important commands.
+
+1-8 Document your docker-compose file.
