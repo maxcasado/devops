@@ -1,0 +1,10 @@
+- name: Run app container
+  docker_container:
+    name: simpleapi
+    image: maxcasado/tp-devops-simple-api:latest
+    env:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/mydb
+      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_PASSWORD: mypass
+    networks:
+      - name: app-network

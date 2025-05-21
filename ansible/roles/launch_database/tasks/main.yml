@@ -1,0 +1,12 @@
+- name: Run PostgreSQL container
+  docker_container:
+    name: db
+    image: postgres:13
+    env:
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - name: app-network
