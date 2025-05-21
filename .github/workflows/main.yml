@@ -23,6 +23,7 @@ jobs:
         run: mvn clean verify
         working-directory: backend
 
+
   build-and-push-docker-image:
     needs: test-backend
     runs-on: ubuntu-24.04
@@ -37,7 +38,7 @@ jobs:
       - name: Build and push backend image
         uses: docker/build-push-action@v6
         with:
-          context: ./backend/simpleapi
+          context: ./backend
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-simple-api:latest
           push: ${{ github.ref == 'refs/heads/main' }}
 
@@ -48,12 +49,9 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-database:latest
           push: ${{ github.ref == 'refs/heads/main' }}
 
-
-
       - name: Build and push httpd image
         uses: docker/build-push-action@v6
         with:
           context: ./httpd
-
-
-          
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-httpd:latest
+          push: ${{ github.ref == 'refs/heads/main' }}
