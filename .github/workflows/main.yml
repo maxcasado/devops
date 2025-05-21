@@ -20,7 +20,8 @@ jobs:
           java-version: '17'
 
       - name: Run tests
-        run: mvn clean verify --file ./simple-api/pom.xml
+        run: mvn clean verify
+        working-directory: backend
 
   build-and-push-docker-image:
     needs: test-backend
