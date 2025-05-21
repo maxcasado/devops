@@ -22,3 +22,4 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn clean verify
+        working-directory: backend
