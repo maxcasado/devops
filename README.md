@@ -34,3 +34,8 @@ We need a multistage because we.
 1-7 Document docker-compose most important commands.
 
 1-8 Document your docker-compose file.
+
+2-1
+
+2-2 For what purpose do we need to use secured variables ?
+We might not want to publish our api keys in public.
