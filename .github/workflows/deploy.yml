@@ -30,3 +30,6 @@ jobs:
         run: |
           cd ansible
           ansible-playbook -i inventories/setup.yml playbook.yml
+
+
+          
