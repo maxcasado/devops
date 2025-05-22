@@ -29,4 +29,4 @@ jobs:
       - name: Run Ansible playbook
         run: |
           cd ansible
-          ansible-playbook -i inventories/setup.yml playbook.yml
+          ansible-playbook --private-key ~/.ssh/id_ed25519 -i inventories/setup.yml playbook.yml
