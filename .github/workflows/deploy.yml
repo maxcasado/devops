@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: CD Pipeline
 
 on:
   push:
@@ -28,4 +28,4 @@ jobs:
 
       - name: Run Ansible playbook
         run: |
-          ansible-playbook -i inventory.ini site.yml
+          ansible-playbook -i inventories/setup.yml playbook.yml
