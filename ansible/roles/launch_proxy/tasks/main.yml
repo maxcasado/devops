@@ -1,8 +1,12 @@
-- name: Run HTTPD proxy
+- name: Run HTTPD
   docker_container:
-    name: httpd
+    name: http
     image: maxcasado/tp-devops-httpd:latest
+    pull: yes
+    state: started
+    restart_policy: always
+    
+    networks: 
+      - name: app-network
     ports:
       - "80:80"
-    networks:
-      - name: app-network

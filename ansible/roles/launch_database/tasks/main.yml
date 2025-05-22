@@ -1,12 +1,13 @@
-- name: Run PostgreSQL container
+- name: Run database
   docker_container:
-    name: db
-    image: postgres:13
+    name: database
+    state: started
+    restart_policy: always
     env:
       POSTGRES_DB: db
       POSTGRES_USER: usr
       POSTGRES_PASSWORD: pwd
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks:
+    image: maxcasado/tp-devops-database:latest
+    pull: yes
+    networks: 
       - name: app-network
