@@ -17,12 +17,17 @@ jobs:
       - name: Install Ansible
         run: |
           sudo apt update
-          sudo apt install -y ansible sshpass
+          sudo apt install -y ansible
 
-      - name: Setup SSH key
+      - name: Start SSH agent and add private key
         uses: webfactory/ssh-agent@v0.9.0
         with:
-            ssh-private-key: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
+
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan max.casado.takima.cloud >> ~/.ssh/known_hosts
 
       - name: Run Ansible playbook
         run: |
